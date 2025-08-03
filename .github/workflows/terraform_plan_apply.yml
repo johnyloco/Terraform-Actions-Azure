@@ -32,7 +32,7 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: terraform plan -input=false
+      run: -auto-approve tfplan
 
   terraform-apply:
       name: 'Terraform apply'
@@ -43,12 +43,6 @@ jobs:
       # Checkout the repository to the GitHub Actions runner
       - name: Checkout
         uses: actions/checkout@v4
-
-      - name: Upload tfplan
-        uses: actions/upload-artifact@v4
-        with:
-          name: tfplan
-          path: path/to/tfplanfile
 
       # Install the latest version of Terraform CLI 
       - name: Setup Terraform
