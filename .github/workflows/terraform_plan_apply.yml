@@ -44,6 +44,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Upload tfplan
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfplan
+          path: path/to/tfplanfile
+
       # Install the latest version of Terraform CLI 
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v1
