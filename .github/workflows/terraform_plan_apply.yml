@@ -17,7 +17,7 @@ jobs:
     # Login to Azure vie Azure CLI
     - name: Azure CLI Login
       uses: azure/login@v1
-      with:
+      with:  
         creds: ${{ secrets.AZURE_CREDENTIALS }}
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
@@ -32,7 +32,13 @@ jobs:
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
-      run: -auto-approve tfplan
+      run: terraform plan -out=tfplan -input=false
+
+    - name: Upload Terraform Plan
+      uses: actions/upload-artifact@v4
+      with:
+        name: tfplan
+        path: tfplan   
 
   terraform-apply:
       name: 'Terraform apply'
