@@ -87,7 +87,6 @@ resource "azurerm_linux_web_app" "alwa" {
 # Configure GitHub Deployment
 resource "azurerm_app_service_source_control" "github" {
   app_id   = azurerm_linux_web_app.alwa.id
-  use_manual_integration = true
   repo_url = var.repo_GITHUB_URL
   branch   = "main"
 }
