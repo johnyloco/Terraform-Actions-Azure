@@ -1,4 +1,4 @@
-name: 'Terraform plan and apply'
+name: 'Terraform plan and apply CHANGE'
 
 on:
   push:
