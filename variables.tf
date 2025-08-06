@@ -43,7 +43,7 @@ variable "firewall_rule_name" {
   description = "Firewall rule name"
 }
 
-variable "repo_GITHUB_URL" {
+variable "repo_github_url" {
   type        = string
   description = "GitHub repository URL for the web app"
 }
