@@ -2,6 +2,8 @@ name: 'Terraform tests'
 
 on:
   push:
+    branches:
+      - main
   pull_request:
 
 jobs:
@@ -22,8 +24,6 @@ jobs:
     - name: Terraform Init
       run: terraform init
       
-    - name: Set output
-      run: echo "foo=bar" >> $GITHUB_OUTPUT
 
     # Checks that all Terraform configuration files adhere to a canonical format
     - name: Terraform Format
