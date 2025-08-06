@@ -85,8 +85,10 @@ resource "azurerm_linux_web_app" "alwa" {
 }
 
 # Configure GitHub Deployment
-resource "azurerm_app_service_source_control" "aassc" {
+resource "azurerm_app_service_source_control" "apssc" {
   app_id   = azurerm_linux_web_app.alwa.id
-  repo_url = "https://github.com/johnyloco/AzureData"
+  repo_url = var.repo_github_url
   branch   = "main"
+
+  use_manual_integration = true
 }
