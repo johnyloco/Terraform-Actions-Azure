@@ -90,5 +90,5 @@ resource "azurerm_app_service_source_control" "apssc" {
   repo_url = var.repo_github_url
   branch   = "main"
 
-  use_manual_integration = true
+  use_manual_integration = false
 }
